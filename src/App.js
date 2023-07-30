@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreatePost from './components/CreatePost';
 import PostList from './components/PostLists';
 import PostDetail from './components/PostDetail';
-import CreateNewPost from './components/CreateNewPost';
+
 
 function App() {
   return (

@@ -6,7 +6,6 @@ const initialState = {
   };
   
   const postReducer = (state = initialState, action) => {
-    console.log("====== action", action.payload);
     switch (action.type) {
       case 'FETCH_POSTS_REQUEST':
         return {

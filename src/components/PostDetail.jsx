@@ -1,7 +1,9 @@
-// src/components/PostDetail.js
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import LoadingScreen from './loading';
+import './postDetail.css'
 
 const PostDetail = () => {
   const { postId } = useParams();
@@ -24,13 +26,13 @@ const PostDetail = () => {
   }, [postId]);
 
   return (
-    <div>
+    <div >
       {loading ? (
-        <div>Loading...</div>
+        <LoadingScreen />
       ) : (
-        <div>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
+        <div className='post_div'>
+          <h2 className='h2_sec'>{post.title}</h2>
+          <p className='p_sec'>{post.body}</p>
         </div>
       )}
     </div>

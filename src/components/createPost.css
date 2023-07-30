@@ -1,0 +1,62 @@
+form {
+    border: none;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    width: 50%;
+  }
+
+.create_new_post_maindiv{
+    border: 2px solid black;
+    width: 50%;
+    margin: 80px auto;
+    height: 50vh;
+   background-color: antiquewhite;
+}
+.title_section{
+    margin-bottom: 20px;
+    margin-left: 45px;
+    width: 100%;
+}
+.btn_1_wrapper{
+  width: 100%;
+  text-align: center;
+}
+.btn_1{
+    width: 25%;
+    margin: 20px 0 0;
+}
+textarea {
+    width: 56%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    /* width: 27%; */
+  } 
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+   
+  }
+  input{
+    margin-left: 10px;
+    width: 60%;
+    height: 30px;
+  }
+  .h1_sect{
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+  }
+  .btn_3{
+    width: 60%;
+  }
+  .successfully{
+    width: 50%;
+    height: 100px;
+    margin: 80px auto;
+    text-align: center;
+  }

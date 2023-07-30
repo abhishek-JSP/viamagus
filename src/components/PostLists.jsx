@@ -3,20 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../components/Redux/PostAction';
 import { Link } from 'react-router-dom';
 import './PostList.css'
+import LoadingScreen from './loading';
 
 const PostList = () => {
   const dispatch = useDispatch();
   const { posts, loading, error } = useSelector(state => state);
-  console.log("========= post", posts);
   const [start, setStart] = useState(0);
   const [limit, setLimit] = useState(10);
-  const [arr, setArr] = useState([])
-
-  const data = arr.length ? arr : posts.arr
-
 
   useEffect(() => {
-    console.log("============ first useeffect", limit);
     dispatch(fetchPosts(start, limit));
   }, [limit]);
 
@@ -38,7 +33,6 @@ const PostList = () => {
   }
 
   const dataForPrevPage = () => {
-    console.log("========data", start);
     if (start >= 0 && limit >= 10)
       setStart(prev => {
         if (prev > 0) {
@@ -56,25 +50,24 @@ const PostList = () => {
 
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingScreen />;
   }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
-  console.log("========== data", data, "arr", arr);
   return (
     <>
       <div className='link_div'>
         <Link to="/createpost">Create Post</Link>
       </div>
     <div className='main_div'>
-      {data && data.length === 0 ? (
+      {posts.arr && posts.arr.length === 0 ? (
         <div>No posts found</div>
       ) : (
         <>
-          {data && data.map((post, index) => (
-            <Link  to={`/post/${post.id}`}>
+          {posts.arr && posts.arr.map((post, index) => (
+            <Link to={`/post/${post.id}`}>
               <div className='div_section' key={post.id}>
                 <h3 className='link_section'> Serial:{index+1}</h3>
                 <div>
@@ -88,11 +81,12 @@ const PostList = () => {
         </>
       )}
 
-      <div>
-        <button onClick={dataForPrevPage}>prev</button>
-        <button onClick={dataForNextPage}>next</button>
-      </div>
+      
     </div>
+    <div className='btn'>
+        <button onClick={dataForPrevPage}>Prev</button>
+        <button onClick={dataForNextPage}>Next</button>
+      </div>
     </>
   );
 };
